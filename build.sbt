@@ -19,7 +19,7 @@ testSparkVersion := sys.props.get("spark.testVersion").getOrElse(sparkVersion.va
 sparkComponents := Seq("core", "sql")
 
 libraryDependencies ++= Seq(
-  "org.apache.commons" % "commons-csv" % "1.1-notrim",
+  "org.keedio.commons" % "commons-csv" % "1.1-notrim",
   "com.univocity" % "univocity-parsers" % "1.5.1",
   "org.slf4j" % "slf4j-api" % "1.7.5" % "provided",
   "org.scalatest" %% "scalatest" % "2.2.1" % "test",
@@ -60,14 +60,19 @@ pomExtra := (
     </license>
   </licenses>
   <scm>
-    <url>git@github.com:databricks/spark-csv.git</url>
-    <connection>scm:git:git@github.com:databricks/spark-csv.git</connection>
+    <url>git@github.com:keedio/spark-csv.git</url>
+    <connection>scm:git:git@github.com:keedio/spark-csv.git</connection>
   </scm>
   <developers>
     <developer>
       <id>falaki</id>
       <name>Hossein Falaki</name>
       <url>http://www.falaki.net</url>
+    </developer>
+    <developer>
+      <id>lucarosellini</id>
+      <name>Luca Rosellini</name>
+      <url>http://www.keedio.com</url>
     </developer>
   </developers>)
 
