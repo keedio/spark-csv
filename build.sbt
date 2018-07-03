@@ -1,6 +1,6 @@
 name := "spark-csv"
 
-version := "1.5.1"
+version := "1.5.2"
 
 organization := "org.keedio"
 
@@ -19,7 +19,7 @@ testSparkVersion := sys.props.get("spark.testVersion").getOrElse(sparkVersion.va
 sparkComponents := Seq("core", "sql")
 
 libraryDependencies ++= Seq(
-  "org.apache.commons" % "commons-csv" % "1.1",
+  "org.apache.commons" % "commons-csv" % "1.1-notrim",
   "com.univocity" % "univocity-parsers" % "1.5.1",
   "org.slf4j" % "slf4j-api" % "1.7.5" % "provided",
   "org.scalatest" %% "scalatest" % "2.2.1" % "test",

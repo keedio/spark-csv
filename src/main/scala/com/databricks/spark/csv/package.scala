@@ -139,6 +139,9 @@ package object csv {
 
       val nullValue = parameters.getOrElse("nullValue", "null")
 
+      val ignoreSurroundingSpacesFlag =
+        parameters.getOrElse("ignoreSurroundingSpaces", "false").toBoolean
+      
       val csvFormat = defaultCsvFormat
         .withDelimiter(delimiterChar)
         .withQuote(quoteChar)
@@ -146,6 +149,7 @@ package object csv {
         .withQuoteMode(quoteMode)
         .withSkipHeaderRecord(false)
         .withNullString(nullValue)
+        .withIgnoreSurroundingSpaces(ignoreSurroundingSpacesFlag)
 
       val generateHeader = parameters.getOrElse("header", "false").toBoolean
       val header = if (generateHeader) {
@@ -153,7 +157,7 @@ package object csv {
       } else {
         "" // There is no need to generate header in this case
       }
-
+      
       // Create an index for the format by type so the type check
       // does not have to happen in the inner loop.
       val schema = dataFrame.schema
@@ -179,6 +183,7 @@ package object csv {
           .withQuoteMode(quoteMode)
           .withSkipHeaderRecord(false)
           .withNullString(nullValue)
+          .withIgnoreSurroundingSpaces(ignoreSurroundingSpacesFlag)
 
         new Iterator[String] {
           var firstRow: Boolean = generateHeader
