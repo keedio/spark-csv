@@ -232,6 +232,8 @@ case class CsvRelation protected[spark] (
           fieldSep = delimiter,
           quote = quoteChar,
           escape = escapeVal,
+          ignoreLeadingSpace = ignoreLeadingWhiteSpace,
+          ignoreTrailingSpace = ignoreTrailingWhiteSpace,
           commentMarker = commentChar).parseLine(firstLine)
       } else {
         val csvFormat = defaultCsvFormat
@@ -289,6 +291,8 @@ case class CsvRelation protected[spark] (
         new BulkCsvReader(iter, split,
           headers = header, fieldSep = delimiter,
           quote = quoteChar, escape = escapeVal,
+          ignoreLeadingSpace = ignoreLeadingWhiteSpace,
+          ignoreTrailingSpace = ignoreTrailingWhiteSpace,
           commentMarker = commentChar, maxCharsPerCol = maxCharsPerCol)
       }
     }, true)

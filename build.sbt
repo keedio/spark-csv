@@ -1,8 +1,8 @@
 name := "spark-csv"
 
-version := "1.5.0"
+version := "1.5.1"
 
-organization := "com.databricks"
+organization := "org.keedio"
 
 scalaVersion := "2.11.7"
 
