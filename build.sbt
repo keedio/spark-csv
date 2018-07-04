@@ -1,10 +1,10 @@
 name := "spark-csv"
 
-version := "1.5.2"
+version := "1.5.3"
 
 organization := "org.keedio"
 
-scalaVersion := "2.11.7"
+scalaVersion := "2.10.5"
 
 spName := "databricks/spark-csv"
 
@@ -41,6 +41,13 @@ publishMavenStyle := true
 spAppendScalaVersion := true
 
 spIncludeMaven := true
+
+useGpg := true
+
+usePgpKeyHex("3B906FFBF6A93EFD")
+
+pgpPassphrase := sys.env.get("PGP_PASS").map(_.toArray)
+
 
 publishTo := {
   val nexus = "https://oss.sonatype.org/"
